@@ -4,11 +4,28 @@ __license__ = ""
 __contact__ = "Sofiane Mahiou <sofiane@hazy.com>"
 
 from datetime import datetime
-from Equation.similar import sim, nsim, gsim, lsim
-from Equation.util import addOp, addFn, addConst, addUnaryOp
-import operator as op
+from Equation.util import addFn
 import numpy as np
 import pandas as pd
+
+
+def pandas_case(*args):
+    if len(args) == 1:
+        return args[-1]
+    else:
+        assert len(args) % 2 == 1, "The number of provided paremeters must be odd. following (case_1, value_1, case_2, value_2, ..., else)"
+        return pandas_if(args[0], args[1], pandas_case(*args[2:]))
+
+
+def date(x):
+    return pd.to_datetime(x).dt.date()
+
+
+def coalesce(*args):
+    if len(args) == 1:
+        return args[0]
+    else:
+        return pandas_if(pd.notnull(args[0]), args[0], coalesce(*args[1:]))
 
 
 def loc(x, idx):
@@ -53,55 +70,88 @@ def dense_rank(x):
 
 
 def year(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.year
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.year
 
 
 def month(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.month
-
-
-def day(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.day
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.month
 
 
 def weekday(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.weekday
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.weekday
 
 
 def dayofyear(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.dayofyear
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.dayofyear
+
+
+def day(x):
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.day
+
+
+def days(x):
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.days
 
 
 def hour(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.hour
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.hour
+
+
+def hours(x):
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.hours
 
 
 def minute(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.minute
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.minute
+
+
+def minutes(x):
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.minutes
 
 
 def second(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.second
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.second
+
+
+def seconds(x):
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.seconds
 
 
 def microsecond(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.microsecond
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.microsecond
 
 
 def days_in_month(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.days_in_month
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.days_in_month
 
 
 def is_month_end(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.is_month_end
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.is_month_end
 
 
 def is_month_start(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.is_month_start
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.is_month_start
 
 
 def is_year_start(x):
-    return pd.Series(x, dtype="datetime64[ns]").dt.is_year_start
+    out_series = pd.Series(x, dtype="datetime64[ns]")
+    return out_series.dt.is_year_start
 
 
 def pandas_if(condition, x, y):
@@ -127,14 +177,19 @@ def equation_extend():
     addFn('is_loc', "is_loc({0:s})", "\\is_loc\\left({0:s}\\right)", 2, is_loc)
     addFn('rank', "rank({0:s})", "\\rank\\left({0:s}\\right)", 1, rank)
     addFn('dense_rank', "dense_rank({0:s})", "\\dense_rank\\left({0:s}\\right)", 1, dense_rank)
+    addFn('date', "date({0:s})", "\\date\\left({0:s}\\right)", 1, date)
     addFn('year', "year({0:s})", "\\year\\left({0:s}\\right)", 1, year)
     addFn('month', "month({0:s})", "\\month\\left({0:s}\\right)", 1, month)
-    addFn('day', "day({0:s})", "\\day\\left({0:s}\\right)", 1, day)
     addFn('weekday', "weekday({0:s})", "\\weekday\\left({0:s}\\right)", 1, weekday)
     addFn('dayofyear', "dayofyear({0:s})", "\\dayofyear\\left({0:s}\\right)", 1, dayofyear)
+    addFn('day', "day({0:s})", "\\day\\left({0:s}\\right)", 1, day)
+    addFn('days', "days({0:s})", "\\days\\left({0:s}\\right)", 1, days)
     addFn('hour', "hour({0:s})", "\\hour\\left({0:s}\\right)", 1, hour)
+    addFn('hours', "hours({0:s})", "\\hours\\left({0:s}\\right)", 1, hours)
     addFn('minute', "minute({0:s})", "\\minute\\left({0:s}\\right)", 1, minute)
+    addFn('minutes', "minutes({0:s})", "\\minutes\\left({0:s}\\right)", 1, minutes)
     addFn('second', "second({0:s})", "\\second\\left({0:s}\\right)", 1, second)
+    addFn('seconds', "seconds({0:s})", "\\seconds\\left({0:s}\\right)", 1, seconds)
     addFn('microsecond', "microsecond({0:s})", "\\microsecond\\left({0:s}\\right)", 1, microsecond)
     addFn('days_in_month', "days_in_month({0:s})", "\\days_in_month\\left({0:s}\\right)", 1, days_in_month)
     addFn('is_month_end', "is_month_end({0:s})", "\\is_month_end\\left({0:s}\\right)", 1, is_month_end)
@@ -143,3 +198,5 @@ def equation_extend():
     # IF
     addFn('now', "now({0:s})", "\\now\\left({0:s}\\right)", 0, datetime.now)
     addFn('if', "if({0:s})", "\\if\\left({0:s}\\right)", 3, pandas_if)
+    addFn('case', "case({0:s})", "\\case\\left({0:s}\\right)", "+", pandas_case)
+    addFn('coalesce', "coalesce({0:s})", "\\coalesce\\left({0:s}\\right)", "+", coalesce)
