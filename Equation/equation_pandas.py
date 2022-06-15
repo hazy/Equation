@@ -18,7 +18,7 @@ def pandas_case(*args):
 
 
 def date(x):
-    return pd.to_datetime(x).dt.date()
+    return pd.to_datetime(x).dt.date
 
 
 def coalesce(*args):
@@ -200,3 +200,4 @@ def equation_extend():
     addFn('if', "if({0:s})", "\\if\\left({0:s}\\right)", 3, pandas_if)
     addFn('case', "case({0:s})", "\\case\\left({0:s}\\right)", "+", pandas_case)
     addFn('coalesce', "coalesce({0:s})", "\\coalesce\\left({0:s}\\right)", "+", coalesce)
+    addFn('maximum', "maximum({0:s})", "\\maximum\\left({0:s}\\right)", "+", max)
