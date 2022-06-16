@@ -46,3 +46,11 @@ def addUnaryOp(id, str, latex, func):
 
 def addConst(name, value):
     core.constants[name] = value
+
+
+def is_iterable(obj):
+    try:
+        iter(obj)
+        return True and not (isinstance(obj, str))
+    except TypeError:
+        return False

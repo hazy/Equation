@@ -4,7 +4,7 @@ __license__ = ""
 __contact__ = "Sofiane Mahiou <sofiane@hazy.com>"
 
 from datetime import datetime
-from Equation.util import addFn
+from Equation.util import addFn, is_iterable
 import numpy as np
 import pandas as pd
 
@@ -167,6 +167,28 @@ def cumsum(x):
     return np.cumsum(x)
 
 
+def as_int(x):
+    if is_iterable(x):
+        return pd.Series(x).astype(int)
+    else:
+        return int(x)
+
+
+def as_float(x):
+    if is_iterable(x):
+        return pd.Series(x).astype(float)
+    else:
+        return float(x)
+
+
+def as_dt(x):
+    return pd.to_datetime(x)
+
+
+def as_td(x):
+    return pd.to_timedelta(x)
+
+
 def equation_extend():
     addFn('loc', "loc({0:s})", "\\loc\\left({0:s}\\right)", 2, loc)
     addFn('last', "last({0:s})", "\\last\\left({0:s}\\right)", 1, last)
@@ -195,9 +217,13 @@ def equation_extend():
     addFn('is_month_end', "is_month_end({0:s})", "\\is_month_end\\left({0:s}\\right)", 1, is_month_end)
     addFn('is_month_start', "is_month_start({0:s})", "\\is_month_start\\left({0:s}\\right)", 1, is_month_start)
     addFn('is_year_start', "is_year_start({0:s})", "\\is_year_start\\left({0:s}\\right)", 1, is_year_start)
-    # IF
     addFn('now', "now({0:s})", "\\now\\left({0:s}\\right)", 0, datetime.now)
     addFn('if', "if({0:s})", "\\if\\left({0:s}\\right)", 3, pandas_if)
     addFn('case', "case({0:s})", "\\case\\left({0:s}\\right)", "+", pandas_case)
     addFn('coalesce', "coalesce({0:s})", "\\coalesce\\left({0:s}\\right)", "+", coalesce)
     addFn('maximum', "maximum({0:s})", "\\maximum\\left({0:s}\\right)", "+", max)
+    addFn('minimum', "minimum({0:s})", "\\minimum\\left({0:s}\\right)", "+", min)
+    addFn('as_dt', "as_dt({0:s})", "\\as_dt\\left({0:s}\\right)", 1, as_dt)
+    addFn('as_td', "as_td({0:s})", "\\as_td\\left({0:s}\\right)", 1, as_td)
+    addFn('as_int', "as_int({0:s})", "\\as_int\\left({0:s}\\right)", 1, as_int)
+    addFn('as_float', "as_float({0:s})", "\\as_float\\left({0:s}\\right)", 1, as_float)
