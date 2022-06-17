@@ -80,50 +80,50 @@ Functions
 
 These as normal functions a name followed by a list of parameters
 
-================== ========================================= ==================================================== ===================================================
-Name               Operation                                 Syntax        																				Display
-================== ========================================= ==================================================== ===================================================
-**abs**            Absolute value of A                       ``abs(A)``    																				:math:`\left|A\right|`
-**sin**            Sine value of A                           ``sin(A)``    																				:math:`\sin\left(A\right)`
-**cos**            Cosine value of A                         ``cos(A)``    																				:math:`\cos\left(A\right)`
-**tan**            Tangent value of A                        ``tan(A)``    																				:math:`\tan\left(A\right)`
-**re**             Real Compoent of A                        ``re(A)``     																				:math:`\Re\left(A\right)`
-**im**             Imagery Compoent of A                     ``im(A)``     																				:math:`\Im\left(A\right)`
-**sqrt**           Square root of A                          ``sqrt(A)``   																				:math:`\sqrt{A}`
-**loc**   				 Gets specific value from array						 ``loc(A, idx)``																			:math:`\loc\left(A, idx\right)`
-**last**   				 Last value in array											 ``last(A)``																					:math:`\last\left(A\right)`
-**first**   		   First value in array											 ``first(A)``																					:math:`\first\left(A\right)`
-**rloc**  			   Sub-array of array											   ``rloc(A, start, end)``															:math:`\rloc\left(A, start, end\right)`
-**cumsum**   			 cumulative sum											       ``cumsum(A)``																				:math:`\cumsum\left(A\right)`
-**is_last**   		 True if value is last in array						 ``is_last(A)``																				:math:`\is_last\left(A\right)`
-**is_loc**   			 True if value at specified location			 ``is_loc(A, idx)``																		:math:`\is_loc\left(A, idx\right)`
-**rank**  				 SQL RANK function											   ``rank(A)``																					:math:`\rank\left(A\right)`
-**dense_rank**     SQL DENSE_RANK function									 ``dense_rank(A)``																		:math:`\dense_rank\left(A\right)`
-**date**   				 Date of datetime											     ``date(A)``																					:math:`\date\left(A\right)`
-**year**   				 Year of datetime											     ``year(A)``																					:math:`\year\left(A\right)`
-**month**   			 Month of datetime											   ``month(A)``																					:math:`\month\left(A\right)`
-**weekday**   		 Weekday of datetime											 ``weekday(A)``																				:math:`\weekday\left(A\right)`
-**dayofyear**   	 Day of year of datetime									 ``dayofyear(A)``																			:math:`\dayofyear\left(A\right)`
-**day**   				 Day of datetime											     ``day(A)``																					  :math:`\day\left(A\right)`
-**hour**   				 Hour of datetime											     ``hour(A)``																					:math:`\hour\left(A\right)`
-**minute**  			 Minute of datetime											   ``minute(A)``																				:math:`\minute\left(A\right)`
-**second**         Second of datetime											   ``second(A)``																				:math:`\second\left(A\right)`
-**microsecond**    Microsecond of datetime									 ``microsecond(A)``																		:math:`\microsecond\left(A\right)`
-**days**           Days of timedelta											   ``days(A)``																					:math:`\days\left(A\right)`
-**hours**          Hours of timedelta											   ``hours(A)``																					:math:`\hours\left(A\right)`
-**minutes**        Minutes of timedelta											 ``minutes(A)``																				:math:`\minutes\left(A\right)`
-**seconds**        Seconds of timedelta											 ``seconds(A)``																				:math:`\seconds\left(A\right)`
-**now**						 Current datetime											     ``now(A)``																					  :math:`\now\left(A\right)`
-**if**						 SQL IF function											     ``if(Condition, A, B)``															:math:`\if\left(Condition, A, B\right)`
-**case**					 SQL CASE function											   ``case(cond_1, A, cond_2, B, C)``										:math:`\case\left(cond_1, A, cond_2, B, C\right)`
-**coalesce**			 SQL COALESCE function										 ``coalesce(A, B)``																		:math:`\coalesce\left(A, B\right)`
-**maximum**				 Max value within array										 ``maximum(A)``																				:math:`\maximum\left(A\right)`
-**minimum**				 Min value within array										 ``minimum(A)``																				:math:`\minimum\left(A\right)`
-**as_dt**					 Transform value or array to datetime			 ``as_dt(A)``																					:math:`\as_dt\left(A\right)`
-**as_td**					 Transform value or array to timedelta		 ``as_td(A)``																					:math:`\as_td\left(A\right)`
-**as_int**				 Transform value or array to int					 ``as_int(A)``																				:math:`\as_int\left(A\right)`
-**as_float**			 Transform value or array to float				 ``as_float(A)``																			:math:`\as_float\left(A\right)`
-================== ========================================= ==================================================== ===================================================
+=============== ====================================== ================================ ===================================================
+Name            Operation                              Syntax                            Display
+=============== ====================================== ================================ ===================================================
+**abs**         Absolute value of A                    ``abs(A)``                       :math:`\left|A\right|`
+**sin**         Sine value of A                        ``sin(A)``                       :math:`\sin\left(A\right)`
+**cos**         Cosine value of A                      ``cos(A)``                       :math:`\cos\left(A\right)`
+**tan**         Tangent value of A                     ``tan(A)``                       :math:`\tan\left(A\right)`
+**re**          Real Compoent of A                     ``re(A)``                        :math:`\Re\left(A\right)`
+**im**          Imagery Compoent of A                  ``im(A)``                        :math:`\Im\left(A\right)`
+**sqrt**        Square root of A                       ``sqrt(A)``                      :math:`\sqrt{A}`
+**loc**         Gets specific value from array         ``loc(A, idx)``                  :math:`\loc\left(A, idx\right)`
+**last**        Last value in array                    ``last(A)``                      :math:`\last\left(A\right)`
+**first**       First value in array                   ``first(A)``                     :math:`\first\left(A\right)`
+**rloc**        Sub-array of array                     ``rloc(A, start, end)``          :math:`\rloc\left(A, start, end\right)`
+**cumsum**      cumulative sum                         ``cumsum(A)``                    :math:`\cumsum\left(A\right)`
+**is_last**     True if value is last in array         ``is_last(A)``                   :math:`\is_last\left(A\right)`
+**is_loc**      True if value at specified location    ``is_loc(A, idx)``               :math:`\is_loc\left(A, idx\right)`
+**rank**        SQL RANK function                      ``rank(A)``                      :math:`\rank\left(A\right)`
+**dense_rank**  SQL DENSE_RANK function                ``dense_rank(A)``                :math:`\dense_rank\left(A\right)`
+**date**        Date of datetime                       ``date(A)``                      :math:`\date\left(A\right)`
+**year**        Year of datetime                       ``year(A)``                      :math:`\year\left(A\right)`
+**month**       Month of datetime                      ``month(A)``                     :math:`\month\left(A\right)`
+**weekday**     Weekday of datetime                    ``weekday(A)``                   :math:`\weekday\left(A\right)`
+**dayofyear**   Day of year of datetime                ``dayofyear(A)``                 :math:`\dayofyear\left(A\right)`
+**day**         Day of datetime                        ``day(A)``                       :math:`\day\left(A\right)`
+**hour**        Hour of datetime                       ``hour(A)``                      :math:`\hour\left(A\right)`
+**minute**      Minute of datetime                     ``minute(A)``                    :math:`\minute\left(A\right)`
+**second**      Second of datetime                     ``second(A)``                    :math:`\second\left(A\right)`
+**microsecond** Microsecond of datetime                ``microsecond(A)``               :math:`\microsecond\left(A\right)`
+**days**        Days of timedelta                      ``days(A)``                      :math:`\days\left(A\right)`
+**hours**       Hours of timedelta                     ``hours(A)``                     :math:`\hours\left(A\right)`
+**minutes**     Minutes of timedelta                   ``minutes(A)``                   :math:`\minutes\left(A\right)`
+**seconds**     Seconds of timedelta                   ``seconds(A)``                   :math:`\seconds\left(A\right)`
+**now**         Current datetime                       ``now(A)``                       :math:`\now\left(A\right)`
+**if**          SQL IF function                        ``if(Condition,A,B)``            :math:`\if\left(Condition,A,B\right)`
+**case**        SQL CASE function                      ``case(cond_1,A,cond_2,B,C)``    :math:`\case\left(cond_1,A,cond_2,B,C\right)`
+**coalesce**    SQL COALESCE function                  ``coalesce(A,B)``                :math:`\coalesce\left(A,B\right)`
+**maximum**     Max value within array                 ``maximum(A)``                   :math:`\maximum\left(A\right)`
+**minimum**     Min value within array                 ``minimum(A)``                   :math:`\minimum\left(A\right)`
+**as_dt**       Transform value or array to datetime   ``as_dt(A)``                     :math:`\as_dt\left(A\right)`
+**as_td**       Transform value or array to timedelta  ``as_td(A)``                     :math:`\as_td\left(A\right)`
+**as_int**      Transform value or array to int        ``as_int(A)``                    :math:`\as_int\left(A\right)`
+**as_float**    Transform value or array to float      ``as_float(A)``                  :math:`\as_float\left(A\right)`
+=============== ====================================== ================================ ===================================================
 
 Examples
 --------
