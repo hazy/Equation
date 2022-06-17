@@ -132,54 +132,54 @@ The Following are some example expressions demonstrating the Precedence order an
 
 .. code-block:: none
 
-	sin(x*(y+z))
-	sin((x * (y + z)))
+  sin(x*(y+z))
+  sin((x * (y + z)))
 
 .. math::
 
-	\sin\left(\left(x \times \left(y + z\right)\right)\right)
+  \sin\left(\left(x \times \left(y + z\right)\right)\right)
 
 .. code-block:: none
 
-	(a+b)/(c+d)
-	((a + b) / (c + d))
+  (a+b)/(c+d)
+  ((a + b) / (c + d))
 
 .. math::
 
-	\frac{\left(a + b\right)}{\left(c + d\right)}
+  \frac{\left(a + b\right)}{\left(c + d\right)}
 
 .. code-block:: none
 
-	a+b/c+d*e^f
-	((a + (b / c)) + (d * (e ^ f)))
+  a+b/c+d*e^f
+  ((a + (b / c)) + (d * (e ^ f)))
 
 .. math::
 
-	\left(\left(a + \frac{b}{c}\right) + \left(d \times e^{f}\right)\right)
+  \left(\left(a + \frac{b}{c}\right) + \left(d \times e^{f}\right)\right)
 
 .. code-block:: none
 
-	a^b/c^d
-	((a ^ b) / (c ^ d))
+  a^b/c^d
+  ((a ^ b) / (c ^ d))
 
 .. math::
 
-	\frac{a^{b}}{c^{d}}
+  \frac{a^{b}}{c^{d}}
 
 .. code-block:: none
 
-	a*b/c*d
-	(((a * b) / c) * d)
+  a*b/c*d
+  (((a * b) / c) * d)
 
 .. math::
 
-	\left(\frac{\left(a \times b\right)}{c} \times d\right)
+  \left(\frac{\left(a \times b\right)}{c} \times d\right)
 
 .. code-block:: none
 
-	a*b/(c*d)
-	((a * b) / (c * d))
+  a*b/(c*d)
+  ((a * b) / (c * d))
 
 .. math::
 
-	\frac{\left(a \times b\right)}{\left(c \times d\right)}
+  \frac{\left(a \times b\right)}{\left(c \times d\right)}
